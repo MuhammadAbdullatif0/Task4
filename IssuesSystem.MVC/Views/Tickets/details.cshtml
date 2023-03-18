@@ -1,0 +1,15 @@
+﻿@using IssuesSystem.BL.View;
+@model ReadVM;
+@{
+    var Ticket = Model;
+}
+<div class="card p-2 m-5 d-inline-block" style="width: 50vw; min-width:50px; margin:auto;">
+    <ul class="card-body">
+        <li>Title : @(Ticket.title)</li>
+        <li class="text-danger">Severity : @(Ticket.sev)</li>
+        <li class="text-success">Description : @(Ticket.desc)</li>
+        
+    </ul>
+    <div class="my-2"><a href="/Tickets/Edit/@(Ticket.id)"><button class="btn btn-success w-100">Edit</button></a></div>
+    <div><a href="/Tickets/Delete/@(Ticket.id)"><button class="btn btn-danger w-100" >Delete</button></a></div>
+</div>

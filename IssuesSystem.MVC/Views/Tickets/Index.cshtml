@@ -1,0 +1,30 @@
+﻿@using IssuesSystem.BL.View;
+@model IEnumerable<ReadVM>
+@{
+    var TicketsList = Model;
+}
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div class="container d-flex justify-content-center row">
+@foreach (var Ticket in TicketsList)
+{
+    <div class="card p-2 col-lg-4">
+        <div class="card-body">
+            <h4>Title : @(Ticket.title)</h4>
+            <h5 class="text-danger">Severity : @(Ticket.sev)</h5>
+            <h5 class="text-success">Description : @(Ticket.desc)</h5>
+          
+
+            <div class="my-2"><a href="/Tickets/details/@(Ticket.id)"><button class="btn btn-success w-100">Details</button></a></div>
+        </div>
+    </div>
+}
+</div>
