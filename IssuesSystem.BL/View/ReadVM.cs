@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IssuesSystem.BL.View
 {
-    public record ReadVM(int id , string desc , string title , string sev)
+    public record ReadVM(int id , string desc , string title , string sev , string dept , int dev)
     {
     }
 }

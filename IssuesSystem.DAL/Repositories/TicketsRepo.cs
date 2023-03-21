@@ -13,7 +13,8 @@ public class TicketsRepo : ITicketsRepo
 
     public IEnumerable<Ticket> GetAll()
     {
-        return _context.Set<Ticket>();
+
+        return _context.Set<Ticket>().Include(t=>t.Department).Include(t=>t.devolopers);
     }
 
     public Ticket? Get(int id)

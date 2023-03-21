@@ -38,13 +38,13 @@ public class TicketsManager :ITicketManagers
         {
             return null;
         }
-        return new ReadVM(ticketDB.Id , ticketDB.Description, ticketDB.Title, ticketDB.Severity.ToString());
+        return new ReadVM(ticketDB.Id , ticketDB.Description, ticketDB.Title, ticketDB.Severity.ToString(),ticketDB.Department!.Name,ticketDB.devolopers.Count() );
     }
 
     public List<ReadVM> GetAll()
     {
         var ticketDB = _ticketRepo.GetAll();
-        return ticketDB.Select(d => new ReadVM(d.Id, d.Description, d.Title , d.Severity.ToString()))
+        return ticketDB.Select(d => new ReadVM(d.Id, d.Description, d.Title , d.Severity.ToString() , d.Department!.Name, d.devolopers.Count()))
             .ToList();
     }
 
